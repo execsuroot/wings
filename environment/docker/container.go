@@ -449,5 +449,13 @@ func (e *Environment) convertMounts() []mount.Mount {
 			ReadOnly: m.ReadOnly,
 		}
 	}
+
+	out = append(out, mount.Mount{
+		Type:     mount.TypeBind,
+		Source:   "/dev/hugepages",
+		Target:   "/dev/hugepages",
+		ReadOnly: false,
+	})
+
 	return out
 }
